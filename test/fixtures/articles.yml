@@ -2,8 +2,8 @@
 
 one:
   title: MyFirstString
-  description: MyText
+  description: MyTextThisWasToShortAndMadeMyTestsFailDamnIt
 
 two:
   title: MySecondString
-  description: MySecondText
+  description: MySecondTextThisIsLongEnoughNow
