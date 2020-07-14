@@ -49,6 +49,6 @@ class UsersController < ApplicationController
 
     # Return whitelisted parameters for user
     def user_params
-      params.require(:user).permit(:username)
+      params.require(:user).permit(:username, :email)
     end
 end
