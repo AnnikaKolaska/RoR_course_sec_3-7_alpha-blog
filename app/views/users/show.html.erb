@@ -5,6 +5,8 @@
 <div class="text-center mt-4">
   <%= link_to 'Edit', edit_user_path(@user), class: "btn btn-outline-info" %>
 </div>
+<%= will_paginate @articles %>
 <%= render 'articles/article'%>
+<%= will_paginate @articles %>
 
 <%= link_to 'Back', users_path %>

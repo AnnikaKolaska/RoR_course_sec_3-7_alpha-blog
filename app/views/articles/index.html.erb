@@ -1,5 +1,7 @@
 <h1 class="text-center mt-4">Listing all articles</h1>
+<%= will_paginate @articles %>
 <%= render 'article'%>
+<%= will_paginate @articles %>
 
 <p><%= link_to "Create new article", new_article_path %></p>
 <p><%= link_to 'Return to homepage', root_path %></p>
