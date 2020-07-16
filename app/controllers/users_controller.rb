@@ -40,7 +40,8 @@ class UsersController < ApplicationController
 
   def destroy
     @user.destroy
-    flash[:notice] = "User was successfully destroyed"
+    session[:user_id] = nil
+    flash[:notice] = "Account and all related articles successfully destroyed"
     redirect_to users_url
   end
 
