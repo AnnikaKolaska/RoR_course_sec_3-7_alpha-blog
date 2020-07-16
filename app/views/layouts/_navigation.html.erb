@@ -15,7 +15,9 @@
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <%= link_to "View all Articles", articles_path, class: "nav-link", class:"dropdown-item" %>
-          <%= link_to "Create new article", new_article_path, class: "nav-link", class:"dropdown-item" %>
+          <% if logged_in? %>
+            <%= link_to "Create new article", new_article_path, class: "nav-link", class:"dropdown-item" %>
+          <% end %>
           <div class="dropdown-divider"></div>
           <a class="dropdown-item" href="#">Something else here</a>
         </div>
@@ -24,10 +26,16 @@
         <li class="nav-item">
           <%= link_to 'Log out', logout_path, method: :delete, class:"nav-link"%>
         </li>
-        <li class="nav-item">
-          <%= link_to current_user.username, user_path(current_user), class:"nav-link"%>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Profile [<%= current_user.username %>]
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "View your profile", user_path(current_user), class: "dropdown-item" %>
+            <%= link_to "Edit your profile", edit_user_path(current_user), class: "dropdown-item" %>
+          </div>
         </li>
-        <% else %>
+      <% else %>
         <li class="nav-item">
           <%= link_to 'Log in', login_path, class:"nav-link"%>
         </li>
