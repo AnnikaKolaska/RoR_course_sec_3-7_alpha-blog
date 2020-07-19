@@ -2,6 +2,8 @@
 
 one:
   username: MyFirstUser
+  email: firstuser@email.de
+  password_digest: BCrypt::Password.create("firstuser")
 
 two:
   username: MySecondUser
