@@ -3,13 +3,29 @@ class CategoriesController < ApplicationController
   def index
 
   end
-  
-  def new
 
+  def new
+    @category = Category.new
+  end
+
+  def create
+    @category = Category.new(category_params)
+    if @category.save
+      flash[:notice] = "Category successfully created"
+      redirect_to @category
+    else
+      render 'new'
+    end
   end
 
   def show
 
   end
 
+  private
+
+    # returns whitelisted params for categories
+    def category_params 
+      params.require(:category).permit(:name)
+    end
 end
